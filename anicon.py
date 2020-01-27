@@ -133,7 +133,7 @@ def process(folder: str, name: str, type: str):
     iconfile = folder + '\\' + name.replace(' ', '_') + '.ico'
 
     if os.path.isfile(iconfile):
-        print('An icon is already present. Delete the older icon and `desktop.ini` file before applying a new icon')
+        print('An icon is already present. Delete the older icon before applying a new one')
         return
 
     jpgfile, type = getartwork(folder, name, type)
