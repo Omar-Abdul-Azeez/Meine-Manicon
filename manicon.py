@@ -8,7 +8,7 @@ from requests import get
 
 print('''Run this in your anime folder
 For help, info and memes, check out
-https://github.com/notdedsec/anicon
+https://github.com/Omar-Abdul-Azeez/Meine-Manicon
 ''')
 
 jikan = Jikan()
@@ -40,7 +40,7 @@ def getartwork(folder: str, name: str, type: str) -> tuple:
         page = 1
         results = jikan.search(type, name, page)
 
-        for page in range(min((results["last_page"], 5))):
+        for page in range(1, min((results["last_page"], 5))):
             if page != 1:
                 results = jikan.search(type, name, page)
             counter = 1
@@ -52,13 +52,16 @@ def getartwork(folder: str, name: str, type: str) -> tuple:
                 else:
                     print('\n' + str(counter) + ' - ' + result['title'], end='')
                     ch = "m"
+                    counter += 1
                 if counter % 5 == 0:
                     print("\nm - more", end="")
                     ch = input("\n>")
-                counter += 1
+                    counter += 1
+                    if ch != "m":
+                        break
             else:
-                if ch != "m":
-                    break
+                continue
+            break
         else:
             print("\nNo more", end="")
             ch = input('\n>')
