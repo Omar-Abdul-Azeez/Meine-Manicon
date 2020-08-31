@@ -1,3 +1,5 @@
+## This repo is not being used anymore. It is merely left as an archive. However, I decided to change to AniList instead of MAL and currently have a working script (for anime only and still needs some modifications to deal with similar names except for special chracters that are not allowed in Windows file names as in the case of the second season of Love is War)
+
 # Meine Manicon
 Add cover art from MAL as folder icons to your Anime collection. This is a fork of [dedsec](https://github.com/notdedsec)'s [anicon](https://github.com/notdedsec/anicon).
 
