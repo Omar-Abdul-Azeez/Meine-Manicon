@@ -1,10 +1,10 @@
-## This repo is not being used anymore. It is merely left as an archive. However, I decided to change to AniList instead of MAL and currently have a working script (for anime only and still needs some modifications to deal with similar names except for special chracters that are not allowed in Windows file names as in the case of the second season of Love is War)
+## This repo is not being used anymore. It is merely left as an archive. scrapped stuff... (uses AniList not MAL)
 
 # Meine Manicon
 Add cover art from MAL as folder icons to your Anime collection. This is a fork of [dedsec](https://github.com/notdedsec)'s [anicon](https://github.com/notdedsec/anicon).
 
 ### Why use this fork?
-Well... don't. This fork depends on your library being organized in a special way. both this project and the way i organize my library are still being heavily edited, so i don't recommend using this until atleast the way i organize my files is finished. however this code is public because i have a couple of features that the original doesn't.
+Well... don't. ~This fork depends on your library being organized in a special way. both this project and the way i organize my library are still being heavily edited, so i don't recommend using this until atleast the way i organize my files is finished. however this code is public because i have a couple of features that the original doesn't.~ I myself don't know why I didn't delete this after scrapping it...
 
 -Support of Manga as well as Anime
 -Downloads all media related to the Anime/Manga on MAL for easier access in the future as well as saves the ID of the Anime/Manga on MAL
