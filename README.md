@@ -1,5 +1,3 @@
-## This repo is not being used anymore. It is merely left as an archive. scrapped stuff... (uses AniList not MAL)
-
 # Meine Manicon
 Add cover art from Anilist as folder icons to your Anime collection. This is a fork of [dedsec](https://github.com/notdedsec)'s [anicon](https://github.com/notdedsec/anicon).
 
