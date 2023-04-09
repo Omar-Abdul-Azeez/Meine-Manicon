@@ -7,23 +7,16 @@ import requests
 from PIL import Image, ImageOps
 
 
-def createicon(folder: str, name: str, pic: str):
+def createicon(folder: str, title: str, pic: str):
     img = Image.open(pic)
-    img = ImageOps.expand(img, (69, 0, 69, 0), fill=0)
-    img = ImageOps.fit(img, (300, 300)).convert("RGBA")
-
-    datas = img.getdata()
-    newData = []
-    for item in datas:
-        if item[0] == 0 and item[1] == 0 and item[2] == 0:
-            newData.append((0, 0, 0, 0))
-        else:
-            newData.append(item)
-
-    img.putdata(newData)
-    img.save(folder + "\\" + name + ".ico")
+    w, h = img.size
+    size = max(256, w, h)
+    ico = Image.new('RGBA', (size, size), (0, 0, 0, 0))
+    ico.paste(img, (int((size - w) / 2), int((size - h) / 2)))
     img.close()
-    return folder + "\\" + name + ".ico"
+    ico.save(folder + "\\" + title + ".ico")
+    ico.close()
+    return folder + "\\" + title + ".ico"
 
 
 def process(folder: str):
