@@ -10,7 +10,7 @@ from PIL import Image, ImageOps
 def ask(msg, choices, limit=0):
     print(msg)
     for i in range(len(choices)):
-        if limit != 0 and i != 0 and i % limit:
+        if limit != 0 and i != 0 and i % limit == 0:
             ans = input('>')
             if ans != '':
                 ans = int(ans) - 1
@@ -74,8 +74,8 @@ def process(folder: str):
         mediass = []
         ans = ask(folder + ' :', [media['title']['romaji'] for media in medias], limit=10)
         while ans is None:
-            mediass.extend(medias)
             if hasNextPage:
+                mediass.append(medias)
                 page += 1
                 variables['page'] = page
                 response = requests.post(url, json={'query': query, 'variables': variables}).json()["data"]
@@ -83,12 +83,14 @@ def process(folder: str):
                 medias = response["Page"]["media"]
                 ans = ask(folder + ' :', [media['title']['romaji'] for media in medias], limit=10)
             else:
-                medias = []
-                ans = ask(folder + ' :', [media['title']['romaji'] for media in mediass], limit=10)
-        if ans >= len(medias):
-            media = mediass[ans]
+                if len(medias) != 0:
+                    mediass.append(medias)
+                    medias = []
+                ans = ask(folder + ' :', [media['title']['romaji'] for medias in mediass for media in medias], limit=10)
+        if page > len(mediass):
+            media = medias[ans]
         else:
-            media = mediass[ans]
+            media = mediass[int(ans / len(mediass[0]))][ans % len(mediass[0])]
     else:
         response = requests.post(url, json={'query': query, 'variables': variables}).json()["data"]
         media = response["page"]["media"][0]
